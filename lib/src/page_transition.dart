@@ -34,6 +34,8 @@ class PageTransition<T> extends PageRouteBuilder<T> {
 
   /// Optional inheret teheme
   final bool inheritTheme;
+  
+  final bool opaque;
 
   /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
@@ -42,6 +44,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     @required this.type,
     this.childCurrent,
     this.ctx,
+    this.opaque = true,
     this.inheritTheme = false,
     this.curve = Curves.linear,
     this.alignment,
@@ -60,6 +63,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   )
                 : child;
           },
+          opaque: opaque,
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           settings: settings,
